@@ -26,20 +26,24 @@ namespace WeatherAPI.Models
             public double feels_like { get; set; }
             public double temp_min { get; set; }
             public double temp_max { get; set; }
-            public double pressure { get; set; }
-            public double humidity { get; set; }
+            public int pressure { get; set; }
+            public int humidity { get; set; }
         }
         public MainClass main { get; set; }
         public Int64 dt { get; set; }
         public class WindClass
         {
             public double speed { get; set; }
-            public double deg { get; set; }
+            public int deg { get; set; }
         }
         public WindClass wind { get; set; }
         public class SysClass
         {
+            public int type { get; set; }
+            public int id { get; set; }
             public string country { get; set; }
+            public int sunrise { get; set; }
+            public int sunset { get; set; }
         }
         public SysClass sys { get; set; }
         public class RainClass
@@ -56,7 +60,7 @@ namespace WeatherAPI.Models
         public SnowClass snow { get; set; }
         public class CloudsClass
         {
-            public double all { get; set; }
+            public int all { get; set; }
         }
         public CloudsClass clouds { get; set; }
         public class WeatherClass
