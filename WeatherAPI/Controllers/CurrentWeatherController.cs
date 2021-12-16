@@ -36,19 +36,12 @@ namespace WeatherAPI.Controllers
                 var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
-                    RequestUri = new Uri($"https://community-open-weather-map.p.rapidapi.com/find?q={location}&cnt=1&mode=null&lon=0&type=link%2C%20accurate&lat=0&units=metric"),
-                    Headers =
-                {
-                    { "x-rapidapi-host", "community-open-weather-map.p.rapidapi.com" },
-                    { "x-rapidapi-key", "b99908da4bmsh2b013b728fd8ad3p112d00jsn94d5bec39aa1" },
-                },
+                    RequestUri = new Uri($"https://api.openweathermap.org/data/2.5/weather?q={location}&appid=27da6525ff3320b503e537afbcf0dbb9&units=metric"),
                 };
                 using (var response = await client.SendAsync(request))
                 {
                     response.EnsureSuccessStatusCode();
                     String rawJSON = await response.Content.ReadAsStringAsync();
-                    rawJSON = rawJSON.Substring(rawJSON.IndexOf("list") + 7);
-                    rawJSON = rawJSON.Remove(rawJSON.Length - 2);
                     CurrentWeatherModel result = JsonConvert.DeserializeObject<CurrentWeatherModel>(rawJSON);
                     var replaceResult = currentWeatherCollection.ReplaceOne(x => x.name == location, result, new ReplaceOptions() { IsUpsert = true });
                 }

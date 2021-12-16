@@ -28,13 +28,18 @@ namespace WeatherAPI.Models
             public double temp_max { get; set; }
             public int pressure { get; set; }
             public int humidity { get; set; }
+            public int sea_level { get; set; }
+            public int grnd_level { get; set; }
+
         }
         public MainClass main { get; set; }
+        public int visibility { get; set; }
         public Int64 dt { get; set; }
         public class WindClass
         {
             public double speed { get; set; }
             public int deg { get; set; }
+            public double gust { get; set; }
         }
         public WindClass wind { get; set; }
         public class SysClass
@@ -65,6 +70,7 @@ namespace WeatherAPI.Models
         public CloudsClass clouds { get; set; }
         public class WeatherClass
         {
+            public int id { get; set; }
             public string main { get; set; }
             public string description { get; set; }
             public string icon { get; set; }
