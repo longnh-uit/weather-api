@@ -30,13 +30,13 @@ namespace WeatherAPI.Controllers
         async public Task<IHttpActionResult> UpdateWeather()
         {
             var client = new HttpClient();
-            string[] locations = new string[] { "Moscow", "London", "Ha Noi", "Thanh pho Ho Chi Minh", "Dubai" };
+            string[] locations = new string[] { "Mát-xcơ-va", "Luân Đôn", "Hà Nội", "Thành phố Hồ Chí Minh", "Dubai" };
             foreach (string location in locations)
             {
                 var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
-                    RequestUri = new Uri($"https://api.openweathermap.org/data/2.5/weather?q={location}&appid=27da6525ff3320b503e537afbcf0dbb9&units=metric"),
+                    RequestUri = new Uri($"https://api.openweathermap.org/data/2.5/weather?q={location}&lang=vi&appid=27da6525ff3320b503e537afbcf0dbb9&units=metric"),
                 };
                 using (var response = await client.SendAsync(request))
                 {

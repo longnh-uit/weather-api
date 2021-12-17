@@ -237,6 +237,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CurrentWeatherModel.cs" />
+    <Compile Include="Models\DailyWeatherModel.cs" />
     <Compile Include="Models\DatabaseSetting.cs" />
     <Compile Include="Models\Weather.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
