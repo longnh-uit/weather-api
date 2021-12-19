@@ -54,11 +54,11 @@ namespace WeatherAPI.Controllers
         // GET: api/currentweather?name=ejafiesf
         [Route("api/currentweather")]
         [HttpGet]
-        public IHttpActionResult Get(string name)
+        public IHttpActionResult Get(double lon, double lat)
         {
             try
             {
-                var result = currentWeatherCollection.Find(x => x.name == name).FirstOrDefault();
+                var result = currentWeatherCollection.Find(x => x.coord.lon == lon && x.coord.lat == lat).FirstOrDefault();
                 return Ok(result);
             }
             catch (Exception ex)
