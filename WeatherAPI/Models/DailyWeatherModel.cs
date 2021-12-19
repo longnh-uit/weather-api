@@ -24,8 +24,8 @@ namespace WeatherAPI.Models
             public double uvi { get; set; }
             public int cloud { get; set; }
             public int visibility { get; set; }
-            public int win_deg { get; set; }
-            public double win_gust { get; set; }
+            public int wind_deg { get; set; }
+            public double wind_gust { get; set; }
             public class Weather
             {
                 public int id { get; set; }
@@ -65,9 +65,9 @@ namespace WeatherAPI.Models
             public int pressure { get; set; }
             public int humidity { get; set; }
             public double dew_point { get; set; }
-            public double win_speed { get; set; }
-            public int win_deg { get; set; }
-            public double win_gust { get; set; }
+            public double wind_speed { get; set; }
+            public int wind_deg { get; set; }
+            public double wind_gust { get; set; }
             public class Weather
             {
                 public int id { get; set; }
