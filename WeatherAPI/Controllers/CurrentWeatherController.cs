@@ -1,15 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using WeatherAPI.Models;
 using MongoDB.Driver;
 using WeatherAPI.App_Start;
-using MongoDB.Bson;
 
 namespace WeatherAPI.Controllers
 {
@@ -30,7 +27,7 @@ namespace WeatherAPI.Controllers
         async public Task<IHttpActionResult> UpdateWeather()
         {
             var client = new HttpClient();
-            string[] locations = new string[] { "Mát-xcơ-va", "Luân Đôn", "Hà Nội", "Thành phố Hồ Chí Minh", "Dubai" };
+            string[] locations = new string[] { "Mát-xcơ-va", "Luân Đôn", "Hà Nội", "Thành phố Hồ Chí Minh", "Dubai", "Edmonton" };
             foreach (string location in locations)
             {
                 var request = new HttpRequestMessage
