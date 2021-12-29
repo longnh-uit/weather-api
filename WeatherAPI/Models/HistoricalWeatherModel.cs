@@ -31,8 +31,17 @@ namespace WeatherAPI.Models
             public double wind_speed { get; set; }
             public double wind_gust { get; set; }
             public int wind_deg { get; set; }
-            public double rain { get; set; }
-            public double snow { get; set; }
+            public class Rain
+            {
+                [JsonProperty("1h")]
+                public double _1h { get; set; }
+            }
+            public Rain rain { get; set; }
+            public class Snow
+            {
+                [JsonProperty("1h")]
+                public double _1h { get; set; }
+            }
             public class Weather
             {
                 public int id { get; set; }
