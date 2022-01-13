@@ -230,6 +230,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AlertController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CurrentWeatherController.cs" />
     <Compile Include="Controllers\DailyWeatherController.cs" />
     <Compile Include="Controllers\HistoricalWeatherController.cs" />
@@ -240,6 +241,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AlertModel.cs" />
+    <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\CurrentWeatherModel.cs" />
     <Compile Include="Models\DailyWeatherModel.cs" />
     <Compile Include="Models\DatabaseSetting.cs" />

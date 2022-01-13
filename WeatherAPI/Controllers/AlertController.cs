@@ -33,7 +33,9 @@ namespace WeatherAPI.Controllers
                 new LocationModel() { name = "Thành phố Hồ Chí Minh", lon = 106.6667, lat = 10.75 },
                 new LocationModel() { name = "Luân Đôn", lon = -0.1257, lat = 51.5085 },
                 new LocationModel() { name = "Dubai", lon = 55.3047, lat = 25.2582 },
-                new LocationModel() { name = "Edmonton", lon = -113.4687, lat = 53.5501 }
+                new LocationModel() { name = "Edmonton", lon = -113.4687, lat = 53.5501 },
+                new LocationModel() { name = "Quảng Trị", lon = 107.2, lat = 16.75 },
+                new LocationModel() { name = "Bình Định", lon = 109.1117, lat = 13.886 }
             };
 
             foreach (LocationModel location in locations)

@@ -33,12 +33,10 @@ namespace WeatherAPI.Controllers
             locationCollection = dBContext.database.GetCollection<LocationModel>("location");
         }
 
-        [Route("api/getlocation")]
-        [HttpGet]
-        public IHttpActionResult GetLocationList()
+        private List<LocationModel> GetLocationList()
         {
             List<LocationModel> locations = locationCollection.Find(_ => true).ToList();
-            return Ok(locations);
+            return locations;
         }
 
         [Route("api/searchlocation")]
@@ -67,6 +65,26 @@ namespace WeatherAPI.Controllers
 
             return Ok(result);
 
+        }
+
+        [Route("api/getlocation")]
+        [HttpGet]
+        public IHttpActionResult GetLocationFromCoords(double lat, double lon)
+        {
+            var locations = GetLocationList();
+            double min = -1;
+            LocationModel returnValue = null;
+            foreach(LocationModel location in locations)
+            {
+                double distance = Math.Sqrt((lat - location.lat) * (lat - location.lat) + (lon - location.lon) * (lon - location.lon));
+                if (min == -1 || distance < min)
+                {
+                    min = distance;
+                    returnValue = location;
+                }
+            }
+
+            return Ok(returnValue);
         }
     }
 }

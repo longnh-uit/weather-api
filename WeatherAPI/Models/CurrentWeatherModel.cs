@@ -49,6 +49,7 @@ namespace WeatherAPI.Models
             public string country { get; set; }
             public int sunrise { get; set; }
             public int sunset { get; set; }
+
         }
         public SysClass sys { get; set; }
         public class RainClass
@@ -76,6 +77,6 @@ namespace WeatherAPI.Models
             public string icon { get; set; }
         }
         public WeatherClass[] weather { get; set; }
-
+        public int timezone { get; set; }
     }
 }

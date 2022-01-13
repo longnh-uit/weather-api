@@ -12,6 +12,7 @@ using System.Web.Routing;
 using WeatherAPI.App_Start;
 using WeatherAPI.Models;
 using System.Threading;
+using System.IO;
 
 namespace WeatherAPI
 {
@@ -39,21 +40,22 @@ namespace WeatherAPI
             var updateDailyWeatherTimer = new Timer(UpdateDailyWeather);
             var updateHourlyWeatherTimer = new Timer(UpdateHourlyWeather);
 
-            DateTime now = DateTime.Now;
-            DateTime tomorrow = DateTime.Today.AddDays(1).Date;
-            DateTime nextHour = new DateTime(now.Year, now.Month, now.Day, now.Hour + 1, 0, 0);
-            int durationUntilTomorrow = Convert.ToInt32((tomorrow - now).TotalMilliseconds);
-            int durationUntilNextHour = Convert.ToInt32((nextHour - now).TotalMilliseconds);
+            //DateTime now = DateTime.Now;
+            //DateTime tomorrow = DateTime.Today.AddDays(1).Date;
+            //DateTime nextHour = new DateTime(now.Year, now.Month, now.Day, now.Hour, 0, 0);
+            //int durationUntilTomorrow = Convert.ToInt32((tomorrow - now).TotalMilliseconds);
+            //int durationUntilNextHour = Convert.ToInt32((nextHour - now).TotalMilliseconds);
 
             updateCurrentTimer.Change(0, 60 * 60 * 1000);
-            updateDailyWeatherTimer.Change(durationUntilTomorrow, 24 * 60 * 60 * 1000);
-            updateHourlyWeatherTimer.Change(durationUntilNextHour, 60 * 60 * 1000);
+            updateDailyWeatherTimer.Change(0, 60 * 60 * 1000);
+            updateHourlyWeatherTimer.Change(0, 60 * 30 * 1000);
+
         }
 
         private async void UpdateCurrentWeather(object e)
         {
             var client = new HttpClient();
-            string[] locations = new string[] { "Mát-xcơ-va", "Luân Đôn", "Hà Nội", "Thành phố Hồ Chí Minh", "Dubai", "Edmonton" };
+            string[] locations = new string[] { "Mát-xcơ-va", "Luân Đôn", "Hà Nội", "Thành phố Hồ Chí Minh", "Dubai", "Edmonton", "Quang Tri", "Bình Định" };
             foreach (string location in locations)
             {
                 var request = new HttpRequestMessage
@@ -82,7 +84,9 @@ namespace WeatherAPI
                 new LocationModel() { name = "Thành phố Hồ Chí Minh", lon = 106.6667, lat = 10.75 },
                 new LocationModel() { name = "Luân Đôn", lon = -0.1257, lat = 51.5085 },
                 new LocationModel() { name = "Dubai", lon = 55.3047, lat = 25.2582 },
-                new LocationModel() { name = "Edmonton", lon = -113.4687, lat = 53.5501 }
+                new LocationModel() { name = "Edmonton", lon = -113.4687, lat = 53.5501 },
+                new LocationModel() { name = "Quảng Trị", lon = 107.2, lat = 16.75 },
+                new LocationModel() { name = "Bình Định", lon = 109.1117, lat = 13.886 }
             };
 
             foreach (LocationModel location in locations)
@@ -120,7 +124,9 @@ namespace WeatherAPI
                 new LocationModel() { name = "Thành phố Hồ Chí Minh", lon = 106.6667, lat = 10.75 },
                 new LocationModel() { name = "Luân Đôn", lon = -0.1257, lat = 51.5085 },
                 new LocationModel() { name = "Dubai", lon = 55.3047, lat = 25.2582 },
-                new LocationModel() { name = "Edmonton", lon = -113.4687, lat = 53.5501 }
+                new LocationModel() { name = "Edmonton", lon = -113.4687, lat = 53.5501 },
+                new LocationModel() { name = "Quảng Trị", lon = 107.2, lat = 16.75 },
+                new LocationModel() { name = "Bình Định", lon = 109.1117, lat = 13.886 }
             };
 
             foreach (LocationModel location in locations)

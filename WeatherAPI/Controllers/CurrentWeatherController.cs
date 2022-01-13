@@ -27,7 +27,7 @@ namespace WeatherAPI.Controllers
         async public Task<IHttpActionResult> UpdateWeather()
         {
             var client = new HttpClient();
-            string[] locations = new string[] { "Mát-xcơ-va", "Luân Đôn", "Hà Nội", "Thành phố Hồ Chí Minh", "Dubai", "Edmonton" };
+            string[] locations = new string[] { "Mát-xcơ-va", "Luân Đôn", "Hà Nội", "Thành phố Hồ Chí Minh", "Dubai", "Edmonton", "Quang Tri", "Bình Định" };
             foreach (string location in locations)
             {
                 var request = new HttpRequestMessage
